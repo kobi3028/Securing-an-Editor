@@ -1,0 +1,7 @@
+List of Contents:
+1. launcher - folder that contatin exe file for running notepad++ with the project dll.
+2. ScureEditor.dll - main product of the project
+3. testingProject - project folder - i work with VS 2013
+	                there are 2 project:
+						3.1 ScureEditor - the main project
+						3.2 SecureStartUp - launcher project

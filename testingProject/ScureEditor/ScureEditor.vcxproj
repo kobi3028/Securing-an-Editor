@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1190C620-84DC-4638-A380-187F3FF5469F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ScureEditor</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;SCUREEDITOR_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\יעקב\Documents\Visual Studio 2013\Projects\testingProject\ScureEditor\rapidjson-master\include;C:\Users\יעקב\Documents\Visual Studio 2013\Projects\testingProject\ScureEditor\mbedtls\mbedtls-2.2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;SCUREEDITOR_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(LocalDebuggerWorkingDirectory)rapidjson-master\include;$(LocalDebuggerWorkingDirectory);$(LocalDebuggerWorkingDirectory)mbedtls\mbedtls-2.2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="mbedtls\CMakeLists.txt" />
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="config.h" />
+    <ClInclude Include="Console.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Console.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="mbedtls\aes.cpp" />
+    <ClCompile Include="mbedtls\aesni.cpp" />
+    <ClCompile Include="mbedtls\arc4.cpp" />
+    <ClCompile Include="mbedtls\asn1parse.cpp" />
+    <ClCompile Include="mbedtls\asn1write.cpp" />
+    <ClCompile Include="mbedtls\base64.cpp" />
+    <ClCompile Include="mbedtls\bignum.cpp" />
+    <ClCompile Include="mbedtls\blowfish.cpp" />
+    <ClCompile Include="mbedtls\camellia.cpp" />
+    <ClCompile Include="mbedtls\ccm.cpp" />
+    <ClCompile Include="mbedtls\certs.cpp" />
+    <ClCompile Include="mbedtls\cipher.cpp" />
+    <ClCompile Include="mbedtls\cipher_wrap.cpp" />
+    <ClCompile Include="mbedtls\ctr_drbg.cpp" />
+    <ClCompile Include="mbedtls\debug.cpp" />
+    <ClCompile Include="mbedtls\des.cpp" />
+    <ClCompile Include="mbedtls\dhm.cpp" />
+    <ClCompile Include="mbedtls\ecdh.cpp" />
+    <ClCompile Include="mbedtls\ecdsa.cpp" />
+    <ClCompile Include="mbedtls\ecjpake.cpp" />
+    <ClCompile Include="mbedtls\ecp.cpp" />
+    <ClCompile Include="mbedtls\ecp_curves.cpp" />
+    <ClCompile Include="mbedtls\entropy.cpp" />
+    <ClCompile Include="mbedtls\entropy_poll.cpp" />
+    <ClCompile Include="mbedtls\error.cpp" />
+    <ClCompile Include="mbedtls\gcm.cpp" />
+    <ClCompile Include="mbedtls\havege.cpp" />
+    <ClCompile Include="mbedtls\hmac_drbg.cpp" />
+    <ClCompile Include="mbedtls\md.cpp" />
+    <ClCompile Include="mbedtls\md2.cpp" />
+    <ClCompile Include="mbedtls\md4.cpp" />
+    <ClCompile Include="mbedtls\md5.cpp" />
+    <ClCompile Include="mbedtls\md_wrap.cpp" />
+    <ClCompile Include="mbedtls\memory_buffer_alloc.cpp" />
+    <ClCompile Include="mbedtls\net.cpp" />
+    <ClCompile Include="mbedtls\oid.cpp" />
+    <ClCompile Include="mbedtls\padlock.cpp" />
+    <ClCompile Include="mbedtls\pem.cpp" />
+    <ClCompile Include="mbedtls\pk.cpp" />
+    <ClCompile Include="mbedtls\pkcs11.cpp" />
+    <ClCompile Include="mbedtls\pkcs12.cpp" />
+    <ClCompile Include="mbedtls\pkcs5.cpp" />
+    <ClCompile Include="mbedtls\pkparse.cpp" />
+    <ClCompile Include="mbedtls\pkwrite.cpp" />
+    <ClCompile Include="mbedtls\pk_wrap.cpp" />
+    <ClCompile Include="mbedtls\platform.cpp" />
+    <ClCompile Include="mbedtls\ripemd160.cpp" />
+    <ClCompile Include="mbedtls\rsa.cpp" />
+    <ClCompile Include="mbedtls\sha1.cpp" />
+    <ClCompile Include="mbedtls\sha256.cpp" />
+    <ClCompile Include="mbedtls\sha512.cpp" />
+    <ClCompile Include="mbedtls\ssl_cache.cpp" />
+    <ClCompile Include="mbedtls\ssl_ciphersuites.cpp" />
+    <ClCompile Include="mbedtls\ssl_cli.cpp" />
+    <ClCompile Include="mbedtls\ssl_cookie.cpp" />
+    <ClCompile Include="mbedtls\ssl_srv.cpp" />
+    <ClCompile Include="mbedtls\ssl_ticket.cpp" />
+    <ClCompile Include="mbedtls\ssl_tls.cpp" />
+    <ClCompile Include="mbedtls\threading.cpp" />
+    <ClCompile Include="mbedtls\timing.cpp" />
+    <ClCompile Include="mbedtls\version.cpp" />
+    <ClCompile Include="mbedtls\version_features.cpp" />
+    <ClCompile Include="mbedtls\x509.cpp" />
+    <ClCompile Include="mbedtls\x509write_crt.cpp" />
+    <ClCompile Include="mbedtls\x509write_csr.cpp" />
+    <ClCompile Include="mbedtls\x509_create.cpp" />
+    <ClCompile Include="mbedtls\x509_crl.cpp" />
+    <ClCompile Include="mbedtls\x509_crt.cpp" />
+    <ClCompile Include="mbedtls\x509_csr.cpp" />
+    <ClCompile Include="mbedtls\xtea.cpp" />
+    <ClCompile Include="ScureEditor.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mbedtls\Makefile" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
